@@ -2,14 +2,18 @@
 
 진수 변환 
   2진수
+~~~
 int Number = 15; 
 Convert.ToString(Number, 2); 
 Console.WriteLine(Convert.ToString(Number, 2));  //OUTPUT : 1111 
-  
+~~~
+
   8진수  
+~~~
 int Number = 15;
 Convert.ToString(Number, 8);
 Console.WriteLine(Convert.ToString(Number, 8)); //OUTPUT : 17
+~~~
   
   16진수
 var Number = 15;
