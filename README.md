@@ -9,4 +9,4 @@ c#
 
 
 React  
-[Bootstrap](react/bootstrap/md)
+[Bootstrap](react/bootstrap.md)
