@@ -7,7 +7,7 @@ c#
 [단축키](csharp/단축키.md)  
 [Dotnet dll 실행시 Endpoint 지정](csharp/Dotnetdll실행시Endpoint지정.md)
 
-[Docker 디버그시 디렉토리 연결](tips/docker/VsDebugMount.md)
+[Docker 디버그시 디렉토리 연결](docker/VsDebugMount.md)
 
 
 React  
