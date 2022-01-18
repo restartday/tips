@@ -10,3 +10,8 @@ Docker run 옵션
 -p 1000:1000   //포트 포워딩(외부/컨테이너순)
 -e HOME=/home   //envirment할당
 ~~~
+
+Docker build 옵션
+~~~
+docker build -f 파일이름 -t 이미지 이름 .
+~~~
