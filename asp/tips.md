@@ -11,3 +11,28 @@ public IActionResult Post([FromForm(Name = "name")] string fileName, [FromForm(N
   return NoContent();
 }
 ~~~
+
+Web Api Ip Restrict 
+https://stackoverflow.com/questions/49321619/how-to-make-a-route-accessible-only-from-localhost
+~~~cs
+public class RestrictToLocalhostAttribute : ActionFilterAttribute
+{
+    public override void OnActionExecuting(ActionExecutingContext context)
+    {
+        var remoteIp = context.HttpContext.Connection.RemoteIpAddress;
+        if (!IPAddress.IsLoopback(remoteIp)) {
+            context.Result = new UnauthorizedResult();
+            return;
+        }
+        base.OnActionExecuting(context);
+    }
+}
+
+[Route("api/elasticsearch/resync/products")]
+[HttpGet]
+[RestrictToLocalhost]
+public async Task<string> ResyncProducts()
+{
+}
+
+~~~
