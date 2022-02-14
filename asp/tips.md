@@ -36,3 +36,36 @@ public async Task<string> ResyncProducts()
 }
 
 ~~~
+
+port block in Configure 
+~~~cs
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+    if (env.IsDevelopment())
+    {
+        app.UseDeveloperExceptionPage();
+        app.UseWebAssemblyDebugging();
+    }
+    else
+    {
+        app.UseExceptionHandler("/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
+
+    app.Use(async (context, next) =>
+    {
+        if (context.Connection.LocalPort == 5001)
+        {
+            context.Response.StatusCode = 400;
+            await context.Response.CompleteAsync();
+        }
+        else
+        // Call the next delegate/middleware in the pipeline.
+            await next(context);
+    });
+    app.UseStaticFiles();
+
+    app.UseRouting();
+}
+~~~
