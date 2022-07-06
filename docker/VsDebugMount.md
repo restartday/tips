@@ -20,3 +20,22 @@ Docker Vscode Tips
 https://blog.mastykarz.nl/docker-containers-visual-studio-code-extension/
 
 
+Arm ubuntu docker 안될때
+~~~
+1. Delete everything in /var/lib/docker. 
+   This will delete existing container and images:
+
+rm -rf /var/lib/docker
+
+2. Then configure your daemon to use the "overlay" storage driver. 
+Set the following flags in /etc/docker/daemon.json. 
+If the file doesn't exist, just create it, and add the contents below:
+{
+    "graph": "/mnt/docker-data",
+    "storage-driver": "overlay"
+}
+
+3. Docker Restart
+https://stackoverflow.com/questions/39100641/docker-service-start-failed
+~~~
+
