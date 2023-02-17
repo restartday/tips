@@ -9,6 +9,7 @@ Docker run 옵션
 --name //containerName
 -p 1000:1000   //포트 포워딩(외부/컨테이너순)
 -e HOME=/home   //envirment할당
+ --add-host host.docker.internal:host-gateway //Ubuntu에서 내부에서 localhost접근하고 싶을때 host.docker.internal에 매핑
 ~~~
 
 Docker build 옵션
